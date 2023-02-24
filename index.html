@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Repeater</title>
+    <style>
+       .header{
+          width:100% ; 
+          color: black;
+          height: 20px;
+          text-align: center;
+       }
+       
+       h4{
+           text-align:center;
+       }
+       
+       #txt{
+           margin-top:40px;
+          padding:2px;
+          font-size: 20px;
+          width:95%;
+          margin-left:5px;
+          margin-right:5px;
+          height:30px;
+          border-left:none;
+          border-right: none;
+          border-top: none;
+          border-bottom-width:2px;
+          border-bottom-color: black;
+       }
+       #r-p{
+          margin-top:40px;
+          padding:2px;
+          font-size: 20px;
+          width:95%;
+          margin-left:5px;
+          margin-right:5px;
+          height:30px;
+          border-left:none;
+          border-right: none;
+          border-top: none;
+          border-bottom-width:2px; 
+          border-bottom-color: black;
+       }
+       
+       #grnt{
+           margin-top:30px;
+           width:45%;
+           padding:2px;
+           font-size: 20px;
+           margin-left: 5px;
+           border-radius:5px;
+           background-color: black;
+           color:white;
+       }
+       
+       #copy{
+           
+           margin-top: 30px;
+           width: 45%;
+           padding:2px;
+           font-size: 20px;
+           margin-left: 10px;
+           border-radius:5px;
+           background-color:black;
+           color:white;
+           
+       }
+       #rpd-txt{
+           margin-top:20px;
+           margin-left:20px;
+           font-size:20px;;
+       }
+       
+    </style>
+</head>
+<body>
+ <div class="header"><h1>TexT RepeateR</h1></div> 
+ <h4>Moh@mmed Ob@idull@hM</h4>
+  
+ <textarea id="txt" cols="30" rows="1" placeholder="Enter Text"></textarea>
+ 
+ <input type="number" placeholder="Repetition Number" id="r-p">
+ <button id="grnt" onclick="generate()">Generate</button>
+ <button id="copy" onclick="copi()">Copy</button>
+ <br><br>
+ <p id="rpd-txt"></p>
+ 
+ <script>
+  function generate() {
+  let x=document.getElementById("txt").value;
+  let y=document.getElementById("r-p").value;
+  let text="";
+  for (let i=0; i< y; i++){
+    text +=x + "<br>" ;
+      
+  }
+  
+  document.getElementById("rpd-txt").innerHTML=text;
+  }   
+  
+  function copi() {
+   var txtcopy=document.getElementById("rpd-txt"); 
+   var range=document.createRange(0, 999) ;
+   range.selectNode(txtcopy);
+   window.getSelection().removeAllRanges();
+   window.getSelection().addRange(range);
+   document.execCommand(copy);
+   alert ("Copy done");
+  }
+     
+ </script>
+  
+</body>
+</html>
